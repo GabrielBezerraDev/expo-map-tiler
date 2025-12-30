@@ -10,9 +10,9 @@ import {
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
-import { Provider } from "components/Provider";
 import { useTheme } from "tamagui";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Provider } from "providers";
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -62,7 +62,11 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
-      <Stack>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Stack.Screen
           name="index"
           options={{
