@@ -53,6 +53,7 @@ export default function RootLayout() {
 }
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
+  const sing = Math.sign(Math.PI);
   return <Provider>{children}</Provider>;
 };
 

@@ -50,16 +50,14 @@ export default function MapsTiler({ coordinates = [] }: MapsProps) {
     <View style={{ flex: 1 }}>
       <MapView style={{ flex: 1 }} mapStyle={mapTilerStyleURL}>
         
-        {/* Câmera só ativa se tivermos uma coordenada válida */}
-        {/* {lastCoordinate && (
+        {lastCoordinate && (
            <Camera 
              centerCoordinate={lastCoordinate} 
              zoomLevel={15} 
-             animationMode="easeTo" // easeTo é mais suave para rastreamento que flyTo
+             animationMode="easeTo" 
              animationDuration={500} 
            />
-        )} */}
-
+        )}
         <ShapeSource key={`route-${coordinates.length}`}  id="minhas-rotas" shape={geoJSONData}>
           <LineLayer
             id="linha-trajeto"

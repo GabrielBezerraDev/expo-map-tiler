@@ -17,14 +17,15 @@ export const useTracker = () => {
         return;
       }
 
-      // 2. Iniciar o "Watch" (Vigia)
+      
       subscriber.current = await Location.watchPositionAsync(
         {
-          accuracy: Location.Accuracy.BestForNavigation, // Alta precisão (GPS)
-          timeInterval: 5000,              // A cada 5000ms (5 segundos)
-          distanceInterval: 0,             // 0 metros (atualiza mesmo se estiver parado)
+          accuracy: Location.Accuracy.BestForNavigation, 
+          timeInterval: 5000,              
+          distanceInterval: 0,             
         },
         (newLocation) => {
+          console.log("Object: ",newLocation);
           setLocation(newLocation);
         }
       );

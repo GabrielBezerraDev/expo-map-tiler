@@ -11,7 +11,7 @@ export default function HomePage() {
         <Button width={"$18"} height={"$4"}>
           Cliente
         </Button>
-        <Button onPress={() => navigate("/transport")} width={"$18"} height={"$4"}>
+        <Button onPress={() => navigate("/sign-in")} width={"$18"} height={"$4"}>
           Transportador
         </Button>
       </View>
