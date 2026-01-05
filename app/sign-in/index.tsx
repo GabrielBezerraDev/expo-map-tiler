@@ -2,14 +2,16 @@ import { useRef } from "react";
 import { Alert } from "react-native";
 import { Button, Input, YStack, Form, Text, Spinner, XStack } from "tamagui";
 import { Controller, useForm } from "react-hook-form";
-import { useRouter } from "expo-router"; 
-import { useAuthStorage } from '../../hooks/useAuthStorage';
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { useAuthStorage } from "../../hooks/useAuthStorage";
 import { useUserProvider } from "providers/useUserProvider";
 
 export default function SignIn() {
-  const router = useRouter(); 
+  const router = useRouter();
   const { saveToken } = useAuthStorage();
-  const { setUser } = useUserProvider(); 
+  const { setUser } = useUserProvider();
+  const { userType } = useLocalSearchParams();
+
   const onSignIn = async (data: any) => {
     try {
       const response = await fetch("http://172.21.72.238:3000/auth/login", {
@@ -25,7 +27,9 @@ export default function SignIn() {
 
         console.log("Payload:", result.payload);
         setUser(result.payload);
-        router.navigate('/client/trips');
+        userType === "client"
+          ? router.navigate("/client/trips")
+          : router.navigate("/transport");
       } else {
         Alert.alert("Erro", result.error);
       }

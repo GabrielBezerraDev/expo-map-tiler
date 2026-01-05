@@ -5,6 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useAuthStorage } from "../../hooks/useAuthStorage";
 import { navigate } from "expo-router/build/global-state/routing";
 import { useUserProvider } from "providers/useUserProvider";
+import { useLocalSearchParams } from "expo-router";
 
 export default function SignUp() {
   const {
@@ -22,6 +23,7 @@ export default function SignUp() {
     },
   });
   const { setUser } = useUserProvider();
+  const { userType } = useLocalSearchParams();
 
   // Refs para gerenciar a ordem de foco do teclado
   const passwordRef = useRef<any>(null);
@@ -67,7 +69,7 @@ export default function SignUp() {
         {
           text: "OK",
           onPress: () => {
-            navigate("/transport");
+            userType === 'client' ? navigate("/client/trips") : navigate("/transport");
           },
         },
       ]);
