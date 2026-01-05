@@ -9,7 +9,7 @@ import React, {
 import { io, Socket } from 'socket.io-client';
 
 
-const SOCKET_URL = 'http://172.21.72.238:3000'; 
+const SOCKET_URL = `${process.env.EXPO_PUBLIC_BACKEND_API}`; 
 
 interface SocketContextProps {
   socket: Socket | null;

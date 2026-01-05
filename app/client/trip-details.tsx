@@ -5,7 +5,7 @@ import { ArrowLeft } from "@tamagui/lucide-icons";
 import MapsTiler, { CoordinatesType } from "../../components/MapTiler";
 
 // CONFIG URL (Atenção ao IP):
-const BASE_URL = "http://172.21.72.238:3000/api/trips"; 
+const BASE_URL = `${process.env.EXPO_PUBLIC_BACKEND_API}/api/trips`; 
 
 export default function TripDetails() {
   const { tripId } = useLocalSearchParams();

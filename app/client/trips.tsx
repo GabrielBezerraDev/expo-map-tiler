@@ -5,7 +5,7 @@ import { useRouter } from "expo-router";
 import { Map, Clock, ChevronRight, User } from "@tamagui/lucide-icons";
 
 // CONFIG URL:
-const API_URL = "http://172.21.72.238:3000/api/trips"; 
+const API_URL = `${process.env.EXPO_PUBLIC_BACKEND_API}/api/trips`; 
 
 export default function TripsList() {
   const [trips, setTrips] = useState<any[]>([]);

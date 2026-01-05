@@ -14,7 +14,7 @@ export default function SignIn() {
 
   const onSignIn = async (data: any) => {
     try {
-      const response = await fetch("http://172.21.72.238:3000/auth/login", {
+      const response = await fetch(`${process.env.EXPO_PUBLIC_BACKEND_API}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -34,6 +34,7 @@ export default function SignIn() {
         Alert.alert("Erro", result.error);
       }
     } catch (error) {
+      console.log(error)
       Alert.alert("Erro", "Falha na conexão");
     }
   };

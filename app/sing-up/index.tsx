@@ -31,12 +31,12 @@ export default function SignUp() {
   const { saveToken } = useAuthStorage();
   const onSignUp = async (formData: any) => {
     try {
-      console.log(
-        "Enviando dados para:",
-        "http://172.21.72.238:3000/auth/register"
-      );
+      // console.log(
+      //   "Enviando dados para:",
+      //   "http://172.21.72.238:3000/auth/register"
+      // );
 
-      const response = await fetch("http://172.21.72.238:3000/auth/register", {
+      const response = await fetch(`${process.env.EXPO_PUBLIC_BACKEND_API}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
