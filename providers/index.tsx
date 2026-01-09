@@ -6,7 +6,7 @@ import {
 } from "tamagui"; // Importando do pacote principal
 import { ToastProvider, ToastViewport } from "@tamagui/toast";
 import { config } from "../tamagui.config";
-import { CurrentToast } from "components/CurrentToast";
+import { CurrentToast } from "components/CurrentToast/CurrentToast";
 import { SocketProvider } from "./useSocketProvider";
 import { DeviceIdProvider } from "./useDeviceIdProvider";
 import { UserProvider } from "./useUserProvider";

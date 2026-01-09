@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Button, Text, useWindowDimensions, View, XStack } from "tamagui";
 import LottieView from "lottie-react-native";
-import { GobackButton } from "components/GoBackButton";
+import { GobackButton } from "components/GoBackButton/GoBackButton";
 import { useToastController } from "@tamagui/toast";
 import { navigate } from "expo-router/build/global-state/routing";
 
